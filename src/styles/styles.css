@@ -1,0 +1,11 @@
+.monsterBOX{
+    width: 15em;
+    height: 20em;
+    float: left;
+    background-color: beige;
+}
+
+.monsterIMG{
+    max-height: 50%;
+    padding-top: 1em;
+}
