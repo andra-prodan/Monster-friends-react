@@ -1,21 +1,29 @@
-import './App.css';
-import Monster from './components/Monster.js';
-import data from './monsters.json';
+import { TextField } from "@mui/material";
+import "./App.css";
+import Items from "./components/Items.js";
+import { useState } from "react";
 
 function App() {
+  const [inputText, setInputText] = useState("");
+  let inputHandler = (event) => {
+    setInputText(event.target.value.toLowerCase());
+  };
   return (
     <div className="App">
-    <div className='Title'>
-    <h1>Monster friends</h1>
-    </div>
-    <div>
-    <input></input>
-    </div>
-    <div className='Cards'>
-    {data.monsters.map((monster)=>(
-      <Monster title={monster.title} description={monster.description} src={`${monster.url}`}/>
-    ))}
-    </div>
+      <div className="Title">
+        <h1>Monster friends</h1>
+      </div>
+      <div>
+        <TextField
+          id="outlined-basic"
+          onChange={inputHandler}
+          variant="outlined"
+          label="Search"
+        ></TextField>
+      </div>
+      <div className="Cards">
+        <Items input={inputText}></Items>
+      </div>
     </div>
   );
 }
